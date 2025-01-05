@@ -27,3 +27,9 @@ weight = 3
 [params]
   recent_posts_number = 0
   mainSections = ["posts", "posts"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      
