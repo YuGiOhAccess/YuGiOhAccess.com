@@ -5,11 +5,7 @@
 
 ### Beta Testing Trailer
 
-{{< audio 
-    ogg="audio/trailer.ogg" 
-    mp3="audio/trailer.mp3" 
-    fallback="Your browser does not support the audio element." 
->}}
+<iframe src="https://www.youtube.com/embed/R1_Syp7CrqY?modestbranding=1&rel=0" width="560" height="315" title="YuGiOh Access (The Client) - Cinematic Audio Trailer" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Intro
 
