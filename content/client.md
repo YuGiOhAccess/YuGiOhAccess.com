@@ -25,12 +25,18 @@ YuGiOhAccess (The Client) is a game for Desktop that allows you to play the YuGi
 
 ### Beta Testing
 
-The client will soon be available for beta testing. If you are interested in participating in the beta, please join our [Discord server](https://discord.gg/6YcSEbYCJT) and stay tuned for more information.
+The beta is now available for download. Click the button below to download the client and start playing.
+Note that you will need to be on our [Discord server](https://discord.gg/6YcSEbYCJT) in order to authenticate and play. This is a temporary limitation, for the beta testing phase only.
 
-note: Discord will be required to participate in the beta test, as we want to make sure we can include the community in the development process.
+<a role="button" class="btn btn-primary" href="https://updates.yugiohaccess.com/beta">Download the Beta</a>
 
 
 ## News:
+
+#### 2025-02-28
+
+We are excited to announce that the beta testing phase for the YuGiOhAccess client has begun. We are looking for feedback and suggestions from the community, so please join our Discord server and let us know what you think.
+
 
 #### 2025-01-04
 
