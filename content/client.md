@@ -55,6 +55,27 @@ The beta is now available for download. Click the button below to download the c
 <script>
 async function loadLatestRelease() {
   try {
+    // Check for cached data first
+    const cacheKey = 'yugiohaccess-latest-release';
+    const cacheTimestampKey = 'yugiohaccess-cache-timestamp';
+    const cacheExpiry = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+    
+    const cachedData = localStorage.getItem(cacheKey);
+    const cacheTimestamp = localStorage.getItem(cacheTimestampKey);
+    
+    if (cachedData && cacheTimestamp) {
+      const now = Date.now();
+      const cacheAge = now - parseInt(cacheTimestamp);
+      
+      if (cacheAge < cacheExpiry) {
+        // Use cached data
+        const release = JSON.parse(cachedData);
+        updateDownloadOptions(release);
+        return;
+      }
+    }
+    
+    // Fetch fresh data from GitHub API
     const response = await fetch('https://api.github.com/repos/yugiohaccess/yugiohaccess/releases/latest');
     
     if (!response.ok) {
@@ -62,6 +83,22 @@ async function loadLatestRelease() {
     }
     
     const release = await response.json();
+    
+    // Cache the response
+    localStorage.setItem(cacheKey, JSON.stringify(release));
+    localStorage.setItem(cacheTimestampKey, Date.now().toString());
+    
+    updateDownloadOptions(release);
+    
+  } catch (error) {
+    console.error('Error loading latest release:', error);
+    document.getElementById('download-loading').style.display = 'none';
+    document.getElementById('download-error').style.display = 'block';
+  }
+}
+
+function updateDownloadOptions(release) {
+  try {
     
     // Find the assets we need
     const assets = release.assets;
@@ -105,7 +142,7 @@ async function loadLatestRelease() {
     document.getElementById('download-options').style.display = 'block';
     
   } catch (error) {
-    console.error('Error loading latest release:', error);
+    console.error('Error updating download options:', error);
     document.getElementById('download-loading').style.display = 'none';
     document.getElementById('download-error').style.display = 'block';
   }
